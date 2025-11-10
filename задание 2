@@ -1,0 +1,24 @@
+class Massage
+    {
+        public virtual void Send()
+        {Console.WriteLine("Сообщение отправлено");}
+    }
+    class Email : Massage
+    {
+        public override void Send()
+        { Console.WriteLine("Email отправлен"); }
+    }
+   class SMS : Massage
+    {
+        public override void Send()
+        { Console.WriteLine("SMS отправлено");}
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Massage[] messages = { new SMS(), new Email(), new Massage() };
+            foreach (var m in messages)
+            { m.Send(); }
+        }
+    }
